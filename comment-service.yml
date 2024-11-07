@@ -9,5 +9,12 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserver:8070/eureka
 server:
   port: 8082
+
+  eureka.client.service-url.defaultZone=http://eurekaserver:8070/eureka/
