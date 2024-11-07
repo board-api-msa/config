@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://postservicedatabase:5432/post_service
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+server:
+  port: 8081
