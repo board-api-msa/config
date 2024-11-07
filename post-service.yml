@@ -5,7 +5,7 @@ spring:
       ddl-auto: create
     show-sql: true
   datasource:
-    url: jdbc:postgresql://postservicedatabase:5432/post_service
+    url: jdbc:postgresql://post-service-database:5432/post_service
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
