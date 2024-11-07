@@ -5,7 +5,7 @@ spring:
       ddl-auto: create
     show-sql: true
   datasource:
-    url: jdbc:postgresql://commentservicedatabase:5432/comment_service
+    url: jdbc:postgresql://comment-service-database:5432/comment_service
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
