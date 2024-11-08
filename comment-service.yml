@@ -15,9 +15,7 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
-    registerWithEureka: true
-    fetchRegistry: true
+      defaultZone: http://eureka-server:8761/eureka    
 
 server:
   port: 8082
