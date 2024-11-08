@@ -3,9 +3,7 @@ server:
 
 spring:
   cloud:
-    gateway:
-      discovery.locator:
-        enabled: true
+    gateway:      
         lowerCaseServiceId: true
 
 eureka:
@@ -21,7 +19,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
-  endpoint:
-    gateway:
-      enabled: true
+        include: "*"  
