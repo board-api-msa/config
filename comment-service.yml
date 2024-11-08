@@ -11,11 +11,22 @@ spring:
     password: postgres
 
 eureka:
+  instance:
+    preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+
 server:
   port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
 <<<<<<< HEAD
 =======
 >>>>>>> 2aeceb63e7eca8d97efb42db83645d13c3e176cd
