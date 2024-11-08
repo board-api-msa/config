@@ -7,7 +7,7 @@ spring:
       discovery.locator:
         enabled: true
         lowerCaseServiceId: true
-        
+
 eureka:
   instance:
     preferIpAddress: true
@@ -22,3 +22,6 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    gateway:
+      enabled: true
