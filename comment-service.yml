@@ -26,7 +26,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: *
-<<<<<<< HEAD
-=======
->>>>>>> 2aeceb63e7eca8d97efb42db83645d13c3e176cd
+        include: "*"
