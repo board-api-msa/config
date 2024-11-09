@@ -3,8 +3,10 @@ server:
 
 spring:
   cloud:
-    gateway:      
-        lowerCaseServiceId: true
+    gateway:
+        discovery.locator:
+          enabled: true  
+          lowerCaseServiceId: true
 
 eureka:
   instance:
