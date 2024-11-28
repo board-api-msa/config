@@ -1,0 +1,13 @@
+spring:  
+  datasource:
+    url: jdbc:postgresql://user-service-database:5432/user_service
+  kafka:
+    producer:
+      acks: all # 모든 브로커에 메시지가 저장된경우에 ack 응답함.
+      retries: 3
+
+server:
+  forward-headers-strategy: framework #ForwardedHeaderFilter 활성화.
+  
+app:
+  jwtExpirationInMs: 3600000

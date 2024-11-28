@@ -1,0 +1,11 @@
+spring:  
+  datasource:
+    url: jdbc:postgresql://comment-service-database:5432/comment_service
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false #자동 커밋 비활성화.
+    listener:
+      ack-mode: manual
+server:
+  forward-headers-strategy: framework #ForwardedHeaderFilter 활성화.

@@ -1,0 +1,14 @@
+spring:  
+  datasource:
+    url: jdbc:postgresql://post-service-database:5432/post_service    
+  kafka:
+    producer:
+      acks: all # 모든 브로커에 메시지가 저장된경우에 ack 응답함.
+      retries: 3
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false #자동 커밋 비활성화.
+    listener:
+      ack-mode: manual
+server:
+  forward-headers-strategy: framework #ForwardedHeaderFilter 활성화.

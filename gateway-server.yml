@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:      
+      routes:
+        - id: post-service
+          uri: lb://POST-SERVICE
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - "/api/posts"
+                  - "/api/posts/{postId:[0-9]+}"
+        - id: comment-service
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - "/api/posts/{postId:[0-9]+}/comments"
+                  - "/api/posts/{postId:[0-9]+}/comments/{commentId:[0-9]+}"
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - "/api/users/**"
+        
+
+management:      
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG

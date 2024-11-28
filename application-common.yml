@@ -1,0 +1,44 @@
+app:
+  jwtSecret: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY==
+
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+      #ddl-auto: validate
+    show-sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true # Feign 클라이언트에 서킷 브레이커 활성화.
+  kafka:
+    bootstrap-servers: kafka-server:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:    
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10 #최근 요청 10번으로 실패율을 계산.
+        failureRateThreshold: 50 #실패율 임계값(%)을 50%로 설정.
+        waitDurationInOpenState: 10000ms #열림 상태에서 반열림 상태로 전환되기까지 대기 시간.
